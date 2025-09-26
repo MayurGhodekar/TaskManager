@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../models/project.model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -13,9 +13,11 @@ import { RouterLink } from '@angular/router';
 })
 export class ProjectListComponent {
   private projectService = inject(ProjectService);
+  private router = inject(Router);
   public projects = this.projectService.getProjects();
 
   selectProject(projectId: string) {
     this.projectService.selectProject(projectId);
+    this.router.navigate(['/tasks']);
   }
 }

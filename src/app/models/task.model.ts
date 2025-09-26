@@ -6,6 +6,8 @@ export enum TaskPriority {
   High = 'High'
 }
 
+export type Assignee = User;
+
 export interface Task {
   id: number;
   name: string;

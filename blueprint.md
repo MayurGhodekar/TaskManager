@@ -9,8 +9,9 @@ A simple task management application that allows users to create projects, add t
 *   **Projects:** Create and manage projects.
 *   **Tasks:** Add tasks to projects and update their status.
 *   **Reporting:** View a chart of completed tasks.
+*   **User Management:** Add and manage users.
 
-## Current Plan
+## Implemented Features
 
 ### Phase 1: Basic project and task management
 
@@ -38,3 +39,11 @@ A simple task management application that allows users to create projects, add t
 *   [x] Redesign the "Project List" page to feature a visually appealing grid of project cards, each with a clear call-to-action.
 *   [x] Transform the "Task List" into an intuitive Kanban-style board, allowing for easy drag-and-drop task management.
 *   [x] Refactor all components to use modern Angular features, including standalone components, typed forms, and the new `@if` and `@for` control flow syntax.
+
+### Phase 5: User Management
+
+*   [x] Create a `UserService` to manage users.
+*   [x] Create a `UserListComponent` to display and add new users.
+*   [x] Add a "Users" link to the sidebar navigation.
+*   [x] Integrate the user list with the task assignment dropdown in the "Add Task" page.
+

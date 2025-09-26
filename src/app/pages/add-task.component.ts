@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ProjectService } from '../services/project.service';
@@ -23,6 +23,7 @@ export class AddTaskComponent {
 
   public priorities = Object.values(TaskPriority);
   public assignees = this.userService.users;
+  public projects = this.projectService.getProjects();
 
   public taskForm = this.fb.group({
     name: ['', Validators.required],
@@ -34,17 +35,20 @@ export class AddTaskComponent {
   });
 
   addTask() {
-    if (this.taskForm.valid) {
-      this.taskService.addTask({
-        name: this.taskForm.value.name!,
-        description: this.taskForm.value.description!,
-        projectId: this.taskForm.value.projectId!,
-        priority: this.taskForm.value.priority!,
-        dueDate: this.taskForm.value.dueDate!,
-        assignee: this.taskForm.value.assignee!,
-        state: 'To Do'
-      });
-      this.router.navigate(['/tasks']);
+    if (this.taskForm.invalid) {
+      this.taskForm.markAllAsTouched();
+      return;
     }
+
+    this.taskService.addTask({
+      name: this.taskForm.value.name!,
+      description: this.taskForm.value.description!,
+      projectId: this.taskForm.value.projectId!,
+      priority: this.taskForm.value.priority!,
+      dueDate: this.taskForm.value.dueDate!,
+      assignee: this.taskForm.value.assignee!,
+      state: 'To Do'
+    });
+    this.router.navigate(['/tasks']);
   }
 }

@@ -14,7 +14,7 @@
           <p>{{ project.description }}</p>
         </div>
         <div class="card-footer">
-          <a [routerLink]="['/tasks']" (click)="selectProject(project.id)">View Tasks</a>
+          <a (click)="selectProject(project.id)">View Tasks</a>
         </div>
       </div>
     }
