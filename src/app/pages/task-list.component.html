@@ -1,0 +1,50 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Tasks</h1>
+    <a routerLink="/add-task" class="add-btn"><i class="fas fa-plus"></i> New Task</a>
+  </header>
+
+  <div class="kanban-board">
+    <div class="kanban-column">
+      <h2>To Do</h2>
+      @for (task of tasks() | filterByState:'To Do'; track task.id) {
+        <div class="task-card">
+          <h4>{{ task.name }}</h4>
+          <p>{{ task.description }}</p>
+          <div class="task-meta">
+            <span class="priority-tag">{{ task.priority }}</span>
+            <span class="due-date">{{ task.dueDate }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="kanban-column">
+      <h2>In Progress</h2>
+      @for (task of tasks() | filterByState:'In Progress'; track task.id) {
+        <div class="task-card">
+          <h4>{{ task.name }}</h4>
+          <p>{{ task.description }}</p>
+          <div class="task-meta">
+            <span class="priority-tag">{{ task.priority }}</span>
+            <span class="due-date">{{ task.dueDate }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="kanban-column">
+      <h2>Done</h2>
+      @for (task of tasks() | filterByState:'Done'; track task.id) {
+        <div class="task-card">
+          <h4>{{ task.name }}</h4>
+          <p>{{ task.description }}</p>
+          <div class="task-meta">
+            <span class="priority-tag">{{ task.priority }}</span>
+            <span class="due-date">{{ task.dueDate }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

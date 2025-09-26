@@ -1,0 +1,20 @@
+<div class="container">
+  <header class="page-header">
+    <a routerLink="/projects" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <h1>Add New Project</h1>
+  </header>
+
+  <div class="form-container">
+    <form [formGroup]="projectForm" (ngSubmit)="addProject()">
+      <div class="form-group">
+        <label for="name">Project Name</label>
+        <input id="name" formControlName="name" placeholder="e.g., Website Redesign">
+      </div>
+      <div class="form-group">
+        <label for="description">Project Description</label>
+        <textarea id="description" formControlName="description" placeholder="e.g., A complete overhaul of the company website"></textarea>
+      </div>
+      <button type="submit" class="submit-btn" [disabled]="projectForm.invalid">Create Project</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f7fa;
+}
+
+app-navigation {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+  <header class="page-header">
+    <a routerLink="/tasks" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <h1>Add New Task</h1>
+  </header>
+
+  <div class="form-container">
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+      <div class="form-group">
+        <label for="name">Task Name</label>
+        <input id="name" formControlName="name" placeholder="e.g., Implement new feature">
+      </div>
+      <div class="form-group">
+        <label for="description">Task Description</label>
+        <textarea id="description" formControlName="description" placeholder="e.g., Add a new dashboard widget"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select id="priority" formControlName="priority">
+          @for (priority of priorities; track priority) {
+            <option [value]="priority">{{ priority }}</option>
+          }
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <input id="dueDate" type="date" formControlName="dueDate">
+      </div>
+      <div class="form-group">
+        <label for="assignee">Assignee</label>
+        <select id="assignee" formControlName="assignee">
+          <option [ngValue]="null" disabled>Select an assignee</option>
+          @for (assignee of assignees(); track assignee.name) {
+            <option [ngValue]="assignee">{{ assignee.name }}</option>
+          }
+        </select>
+      </div>
+      <button type="submit" class="submit-btn" [disabled]="taskForm.invalid">Add Task</button>
+    </form>
+  </div>
+</div>

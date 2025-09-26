@@ -1,0 +1,22 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Projects</h1>
+    <a routerLink="/add-project" class="add-btn"><i class="fas fa-plus"></i> New Project</a>
+  </header>
+
+  <div class="project-grid">
+    @for (project of projects(); track project.id) {
+      <div class="project-card">
+        <div class="card-header">
+          <h3>{{ project.name }}</h3>
+        </div>
+        <div class="card-body">
+          <p>{{ project.description }}</p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/tasks']" (click)="selectProject(project.id)">View Tasks</a>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background: #f4f6f9;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #1967d2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #135ab8;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  text-align: right;
+}
+
+.card-footer a {
+  color: #1967d2;
+  text-decoration: none;
+  font-weight: 600;
+}
