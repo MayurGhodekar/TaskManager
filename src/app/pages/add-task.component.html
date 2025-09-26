@@ -30,8 +30,8 @@
         <label for="assignee">Assignee</label>
         <select id="assignee" formControlName="assignee">
           <option [ngValue]="null" disabled>Select an assignee</option>
-          @for (assignee of assignees(); track assignee.name) {
-            <option [ngValue]="assignee">{{ assignee.name }}</option>
+          @for (user of assignees(); track user.id) {
+            <option [ngValue]="user">{{ user.name }}</option>
           }
         </select>
       </div>

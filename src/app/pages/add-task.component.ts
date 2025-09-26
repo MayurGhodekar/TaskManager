@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ProjectService } from '../services/project.service';
 import { TaskService } from '../services/task.service';
 import { TaskPriority, Assignee } from '../models/task.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-add-task',
@@ -18,13 +19,10 @@ export class AddTaskComponent {
   private router = inject(Router);
   private projectService = inject(ProjectService);
   private taskService = inject(TaskService);
+  private userService = inject(UserService);
 
   public priorities = Object.values(TaskPriority);
-  public assignees = signal<Assignee[]>([
-    { name: 'John Doe', avatar: 'assets/avatar1.png' },
-    { name: 'Jane Smith', avatar: 'assets/avatar2.png' },
-    { name: 'Peter Jones', avatar: 'assets/avatar3.png' },
-  ]);
+  public assignees = this.userService.users;
 
   public taskForm = this.fb.group({
     name: ['', Validators.required],

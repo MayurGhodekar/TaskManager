@@ -7,5 +7,6 @@ export const routes: Routes = [
   { path: 'tasks', loadComponent: () => import('./pages/task-list.component').then(m => m.TaskListComponent) },
   { path: 'add-task', loadComponent: () => import('./pages/add-task.component').then(m => m.AddTaskComponent) },
   { path: 'reporting', loadComponent: () => import('./pages/reporting.component').then(m => m.ReportingComponent) },
+  { path: 'users', loadComponent: () => import('./components/user-list/user-list.component').then(m => m.UserListComponent) },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];

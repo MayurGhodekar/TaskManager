@@ -1,5 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { Task, TaskPriority, Assignee } from '../models/task.model';
+import { Task } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root'

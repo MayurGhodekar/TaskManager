@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Users</h2>
+  <div class="add-user-form">
+    <input #userName type="text" placeholder="Add a new user">
+    <button (click)="addUser(userName.value); userName.value=''">Add User</button>
+  </div>
+  <ul>
+    @for (user of users(); track user.id) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>
+</div>
